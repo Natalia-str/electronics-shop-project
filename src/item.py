@@ -32,11 +32,5 @@ class Item:
         """
         Применяет установленную скидку для конкретного товара.
         """
-        discount_price = self.price * self.pay_rate
-        return discount_price
-
-    # def all(self):
-    #     """Возвращает все товары в магазине"""
-    #
-    #     i = Item.all.append(self)
-    #     return i
+        self.price *= self.pay_rate
+        return self.price
