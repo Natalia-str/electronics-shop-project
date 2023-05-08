@@ -7,7 +7,7 @@ class Item:
     """
     pay_rate = 1.0
     all = []
-    # csv_path = '/Users/natalia/electronic_shop/src/items.csv'
+    path = '/Users/natalia/electronic_shop/src/items.csv'
 
     def __init__(self, name: str, price: float, quantity: int) -> None:
         """
@@ -43,7 +43,7 @@ class Item:
     @classmethod
     def instantiate_from_csv(cls):
         """класс-метод, инициализирующий экземпляры класса Item данными из файла src/items.csv"""
-        with open('/Users/natalia/electronic_shop/src/items.csv', newline='', encoding='iso-8859-1') as csvfile:
+        with open(cls.path, newline='', encoding='iso-8859-1') as csvfile:
             cls.all.clear()
             reader = csv.DictReader(csvfile)
             for row in reader:
