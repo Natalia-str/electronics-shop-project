@@ -24,7 +24,7 @@ def test_string_to_number(get_digit_in_string):
     assert Item.string_to_number(get_digit_in_string) == 5
 
 
-def test_instantiate_from_csv(item_2):
+def test_instantiate_from_csv():
     Item.instantiate_from_csv()
     assert len(Item.all) == 5
 

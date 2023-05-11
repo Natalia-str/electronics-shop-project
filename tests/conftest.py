@@ -10,6 +10,6 @@ def item1():
 def get_digit_in_string():
     return '5'
 
-@pytest.fixture
-def item_2():
-    return Item
+# @pytest.fixture
+# def item_2():
+#     return Item
