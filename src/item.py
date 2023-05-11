@@ -43,14 +43,17 @@ class Item:
     @classmethod
     def instantiate_from_csv(cls):
         """класс-метод, инициализирующий экземпляры класса Item данными из файла src/items.csv"""
-        with open(cls.path, newline='', encoding='iso-8859-1') as csvfile:
-            cls.all.clear()
+        cls.all.clear()
+        with open(cls.path, newline='') as csvfile:
             reader = csv.DictReader(csvfile)
-            for row in reader:
-                # print(row)
-                cls.all.append(cls(row['name'], row['price'], row['quantity']))
-            # print(cls.all)
-            return cls.all
+            if csvfile is None:
+                raise ModuleNotFoundError('Отсутствует файл item.csv')
+            else:
+                for row in reader:
+                    # print(row)
+                    cls.all.append(cls(row['name'], int(row['price']), int(row['quantity'])))
+                # print(cls.all)
+                return cls.all
 
 
     def calculate_total_price(self) -> float:
@@ -69,3 +72,11 @@ class Item:
         """
         self.price *= self.pay_rate
         return self.price
+
+
+# item_1 = Item("Petr Petrov", 10000, 3)
+# print(item_1.all)
+# item_1.instantiate_from_csv()
+# item1 = Item.all[0]
+# print(item1)
+# print(item1.calculate_total_price())
