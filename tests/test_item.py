@@ -10,7 +10,7 @@ def test_item_calculate_total_price(item1):
 
 def test_item_apply_discount(item1):
     """Проверка применения скидки к цене"""
-    Item.pay_rate = 0.8
+    item1.pay_rate = 0.8
     assert item1.apply_discount() == 8000.0
 
 def test_item_init(item1):
