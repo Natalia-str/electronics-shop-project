@@ -1,5 +1,4 @@
 import csv
-# encoding='iso-8859-1'
 
 class Item:
     """
@@ -23,6 +22,13 @@ class Item:
         # self.all.append(self)
 
 
+    def __repr__(self):
+        return f"{self.__class__.__name__}('{self.__name}', {self.price}, {self.quantity})"
+
+
+    def __str__(self):
+        return self.__name
+
     @property
     def name(self):
         return self.__name
@@ -34,11 +40,14 @@ class Item:
             print("Длина наименования товара превышает 10 символов")
         else:
             self.__name = name
+
+
     @staticmethod
     def string_to_number(arg):
         """статический метод, возвращающий число из числа-строки"""
         numb = int(float(arg))
         return numb
+
 
     @classmethod
     def instantiate_from_csv(cls):
@@ -73,10 +82,11 @@ class Item:
         self.price *= self.pay_rate
         return self.price
 
-
+# item1 = Item("Смартфон", 10000, 20)
 # item_1 = Item("Petr Petrov", 10000, 3)
 # print(item_1.all)
 # item_1.instantiate_from_csv()
 # item1 = Item.all[0]
 # print(item1)
 # print(item1.calculate_total_price())
+# print(item1.__repr__())

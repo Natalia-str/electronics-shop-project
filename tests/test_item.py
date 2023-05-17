@@ -28,3 +28,11 @@ def test_instantiate_from_csv():
     Item.instantiate_from_csv()
     assert len(Item.all) == 5
 
+
+def test__repr__(item1):
+    assert item1.__repr__() == "Item('Смартфон', 10000, 20)"
+
+
+def test__str__(item1):
+    assert str(item1) == 'Смартфон'
+    assert item1.__str__() == 'Смартфон'
