@@ -1,5 +1,6 @@
 import csv
 
+
 class Item:
     """
     Класс для представления товара в магазине.
@@ -28,6 +29,10 @@ class Item:
 
     def __str__(self):
         return self.__name
+
+    def __add__(self, other):
+        if isinstance(other, Item):
+            return int(self.quantity) + int(other.quantity)
 
     @property
     def name(self):
