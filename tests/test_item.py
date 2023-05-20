@@ -36,3 +36,7 @@ def test__repr__(item1):
 def test__str__(item1):
     assert str(item1) == 'Смартфон'
     assert item1.__str__() == 'Смартфон'
+
+def test__add__(item1, phone1):
+    """Проверка сложения объектов классов"""
+    assert item1 + phone1 == 25
