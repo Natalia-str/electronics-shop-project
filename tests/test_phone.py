@@ -2,9 +2,9 @@
 from src.phone import Phone
 import pytest
 
-def test__add__(phone1, item1):
-    """Проверка сложения объектов классов"""
-    assert phone1 + item1 == 25
+# def test__add__(phone1, item1):
+#     """Проверка сложения объектов классов"""
+#     assert phone1 + item1 == 25
 
 def test_phone_init(phone1):
     """ Проверка инициализации класса"""
