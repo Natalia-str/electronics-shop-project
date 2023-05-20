@@ -31,8 +31,9 @@ class Item:
         return self.__name
 
     def __add__(self, other):
-        if isinstance(other, Item):
-            return int(self.quantity) + int(other.quantity)
+        return self.quantity + other.quantity
+        # if isinstance(other, Item):
+        #     return self.quantity + other.quantity
 
     @property
     def name(self):
