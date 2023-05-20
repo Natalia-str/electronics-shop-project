@@ -34,12 +34,10 @@ class Phone(Item):
         return f"{self.__class__.__name__}('{self.name}', {self.price}, {self.quantity}, {self.number_of_sim})"
 
 
-
-
-    def __add__(self, other):
-        """сложение экземпляров класса Phone и Item (сложение по количеству товара в магазине)"""
-        if isinstance(other, Phone):
-            return self.quantity + other.quantity
+    # def __add__(self, other):
+    #     """сложение экземпляров класса Phone и Item (сложение по количеству товара в магазине)"""
+    #     if isinstance(other, Item):
+    #         return self.quantity + other.quantity
 
 
 # phone1 = Phone("iPhone 14", 120_000, 5, 2)
