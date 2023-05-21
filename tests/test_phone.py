@@ -20,3 +20,8 @@ def test__repr__(phone1):
 def test__str__(phone1):
     assert str(phone1) == 'iPhone 14'
     assert phone1.__str__() == 'iPhone 14'
+
+def test__add__(phone1, phone2):
+    """Проверка сложения объектов классов"""
+    assert phone1 + phone2 == 10
+
