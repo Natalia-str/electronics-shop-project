@@ -16,10 +16,10 @@ def get_digit_in_string():
 def phone1():
     return Phone("iPhone 14", 120_000, 5, 2)
 
-# @pytest.fixture
-# def phone2():
-#     phone2 = Phone("iPhone 14", 120_000, 5, 2)
-#     return phone2
+@pytest.fixture
+def phone2():
+    phone2 = Phone("iPhone 13", 100_000, 5, 2)
+    return phone2
 
 # @pytest.fixture
 # def item_2():
