@@ -30,6 +30,7 @@ class Item:
         return self.__name
 
     def __add__(self, other):
+        """сложение объектов по количеству"""
         if isinstance(other, Item):
             return self.quantity + other.quantity
 
