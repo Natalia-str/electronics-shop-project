@@ -19,3 +19,5 @@ class Keyboard(Item, MixinLang):
 # print(str(kb.language))
 # kb.change_lang().change_lang()
 # print(str(kb.language))
+# kb.language = 'CH'
+# print(str(kb.language))
