@@ -1,24 +1,18 @@
 class MixinLang:
-    language = "EN"
+    # language = "EN"
     def __init__(self):
-        self.language = self.language
+        self.__language = "EN"
 
-    # def change_lang(self):
-    #     if self.language == "EN":
-    #         self.language = "RU"
-    #         return self.language
-    #     elif self.language == "RU":
-    #         self.language = "EN"
-    #         return self.language
-    #     else:
-    #         raise AttributeError("property 'language' of 'KeyBoard' object has no setter")
+    @property
+    def language(self):
+        return self.__language
 
     def change_lang(self):
-        if self.language == "EN":
-            self.language = "RU"
+        if self.__language == "EN":
+            self.__language = "RU"
             return self
-        elif self.language == "RU":
-            self.language = "EN"
+        elif self.__language == "RU":
+            self.__language = "EN"
             return self
         else:
             raise AttributeError("property 'language' of 'KeyBoard' object has no setter")
