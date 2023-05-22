@@ -1,4 +1,4 @@
-from item import Item
+from src.item import Item
 
 class Phone(Item):
     """
@@ -14,8 +14,20 @@ class Phone(Item):
                 :param number_of_sim: Количество сим-карт.
                 """
         super().__init__(name, price, quantity)
-        if number_of_sim > 0:
-            self.number_of_sim = number_of_sim
+        self.__number_of_sim = number_of_sim
+        # if number_of_sim > 0:
+        #     self.number_of_sim = number_of_sim
+        # else:
+        #     ValueError('Количество физических SIM-карт должно быть целым числом больше нуля.')
+
+    @property
+    def number_of_sim(self):
+        return self.__number_of_sim
+
+    @number_of_sim.setter
+    def number_of_sim(self, number_of_sim):
+        if number_of_sim > 0 and isinstance(number_of_sim, int):
+            self.__number_of_sim = number_of_sim
         else:
             ValueError('Количество физических SIM-карт должно быть целым числом больше нуля.')
 
