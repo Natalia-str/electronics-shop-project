@@ -1,5 +1,6 @@
 import csv
 
+
 class Item:
     """
     Класс для представления товара в магазине.
@@ -25,9 +26,13 @@ class Item:
     def __repr__(self):
         return f"{self.__class__.__name__}('{self.__name}', {self.price}, {self.quantity})"
 
-
     def __str__(self):
         return self.__name
+
+    def __add__(self, other):
+        """сложение объектов по количеству"""
+        if isinstance(other, Item):
+            return self.quantity + other.quantity
 
     @property
     def name(self):
