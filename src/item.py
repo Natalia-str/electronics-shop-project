@@ -1,6 +1,11 @@
 import csv
 from src.mixinlang import MixinLang
+class InstantiateCSVError(Exception):
+    def __init__(self, *args, **kwargs):
+        self.message = "Файл item.csv поврежден"
 
+class NotFoundError(Exception):
+    pass
 
 class Item:
     """
@@ -8,7 +13,8 @@ class Item:
     """
     pay_rate = 1.0
     all = []
-    path = '/Users/natalia/electronic_shop/src/items.csv'
+    # path = '/Users/natalia/electronic_shop/src/items.csv'
+    path = 'items.csv'
 
     def __init__(self, name: str, price: float, quantity: int) -> None:
         """
@@ -55,21 +61,22 @@ class Item:
         numb = int(float(arg))
         return numb
 
-
     @classmethod
     def instantiate_from_csv(cls):
         """класс-метод, инициализирующий экземпляры класса Item данными из файла src/items.csv"""
-        cls.all.clear()
-        with open(cls.path, newline='') as csvfile:
-            reader = csv.DictReader(csvfile)
-            if csvfile is None:
-                raise ModuleNotFoundError('Отсутствует файл item.csv')
-            else:
+        try:
+            cls.all.clear()
+            with open(cls.path, newline='') as csvfile:
+                reader = csv.DictReader(csvfile)
                 for row in reader:
-                    # print(row)
                     cls.all.append(cls(row['name'], int(row['price']), int(row['quantity'])))
-                # print(cls.all)
-                return cls.all
+
+            return cls.all
+
+        except KeyError:
+            raise InstantiateCSVError("Файл item.csv поврежден")
+        except FileNotFoundError:
+            raise FileNotFoundError('Отсутствует файл item.csv')
 
 
     def calculate_total_price(self) -> float:
