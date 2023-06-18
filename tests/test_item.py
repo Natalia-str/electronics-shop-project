@@ -1,5 +1,8 @@
 """Здесь надо написать тесты с использованием pytest для модуля item."""
-from src.item import Item
+import pytest
+
+from src.item import Item, InstantiateCSVError
+
 
 def test_item_calculate_total_price(item1):
     """Проверка стоимости позиции всего товара в магазине"""
@@ -38,3 +41,13 @@ def test__str__(item1):
 def test__add__(item1, phone1):
     """Проверка сложения объектов классов"""
     assert item1 + phone1 == 25
+
+def test_сan_not_open_file():
+    with pytest.raises(FileNotFoundError):
+        Item.instantiate_from_csv()
+        assert Item.instantiate_from_csv() == "FileNotFoundError: Отсутствует файл item.csv"
+
+def test_сan_not_open_broken_file():
+    with pytest.raises(InstantiateCSVError):
+        Item.instantiate_from_csv()
+        assert Item.instantiate_from_csv() == "InstantiateCSVError: Файл item.csv поврежден"
